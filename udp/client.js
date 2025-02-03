@@ -1,4 +1,4 @@
-const dgram = require('dgram');
+const dgram = require('node:dgram');
 
 const socket = new dgram.Socket('udp4'); // UDP, IPv4
 

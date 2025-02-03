@@ -1,4 +1,4 @@
-const dgram = require('dgram');
+const dgram = require('node:dgram');
 
 // Node.js:
 // 1. Class - Socket
