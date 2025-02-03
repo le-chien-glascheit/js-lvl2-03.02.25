@@ -13,3 +13,15 @@ module.exports = {
     Socket: Socket,
 };
 ```
+
+## Protocol (over UDP)
+
+1. Text
+2. Interperation
+
+```json
+{
+    "command": "save",
+    "data": {...}
+}
+```

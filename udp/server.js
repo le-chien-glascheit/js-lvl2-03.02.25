@@ -9,6 +9,7 @@ const socket = new dgram.Socket('udp4'); // UDP, IPv4
 
 // in DOM: addEventListener('message', ev) <=> on('message', msg, rinfo)
 socket.on('message', (msg, rinfo) => {
+    socket.send('ok\n', rinfo.port, rinfo.address);
     console.log(msg, rinfo);
 });
 
