@@ -1,10 +1,12 @@
 import {sum} from './lib';
 
 // 1. syntax
-function save(filename = throw new TypeError("Argument required")) {
-}
+// function save(filename = throw new TypeError("Argument required")) {
+// }
 const re = /(?<year>\d{4})-\d{2}|\d{2}-(?<year>\d{4})/;
+console.log(re);
 // 2. method
 Promise.resolve().finally();
 
-console.log(sum(1, 2));
+console.log(sum(1, 3));
+console.log('hello');
