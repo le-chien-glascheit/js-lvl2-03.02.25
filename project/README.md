@@ -16,13 +16,33 @@ Without JS:
     - Defaults: http://localhost:9999/form-defaults.html?name=%D0%92%D0%B0%D1%81%D1%8F&photo=js.png&token=...
         - GET
         - Path: the same page
+        - No query in action
         - Fields: URL Encoding: ?key=value&key=value query (percent encoding) & file=filename
         - Web Frameworks: get('key') -> first (caution!)
+        - Typical size for RL + Headers: in Kb!
     - method: POST
-        - enctype: appliction/x-www-form...
-        - Path: action
+        - enctype: application/x-www-form...
+        - Path & Query: action
         - Fields: Body: URL Encoding: ?key=value&key=value query (percent encoding) & file=filename
         - content-type: application/x-www-form-urlencoded
+        - Web Frameworks: get('key') -> query & form -> get(key from query) (caution!)
+        - Typical size for body: 1-2mb!
+    - method: POST & enctype: text/plain (don't use!)
+        - Path & Query: action
+        - Fields: Body: key=value\r\nkey=value\r\n
+        - content-type: text/plain
+        - Web Frameworks: get('key') -> query & form -> get(key from query) (caution!)
+        - Typical size for body: 1-2mb!
+    - method: POST & enctype: multipart/form-data
+        - Path & Query: action
+        - Fields: Body ...
+        - content-type: multipart/form-data
+        - Web Frameworks: get('key') -> query & form -> get(key from query) (caution!)
+
+Binary data:
+1. Multipart
+2. Blob
+3. base64* -> URL, Header, Form
 
 ```
 VERB path_and_params HTTP/1.1
