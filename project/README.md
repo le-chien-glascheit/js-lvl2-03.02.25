@@ -38,6 +38,15 @@ Without JS:
         - Fields: Body ...
         - content-type: multipart/form-data
         - Web Frameworks: get('key') -> query & form -> get(key from query) (caution!)
+        - Content-Type: multipart/form-data; boundary=ABC
+        - Total Request Body Limit increase
+        - Part Limit increase
+        - Body:
+        - --ABC\r\n
+        - Headers: value\r\n 
+        - \r\n
+        - Part body
+        - --ABC--\r\n
 
 Binary data:
 1. Multipart
