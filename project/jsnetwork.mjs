@@ -7,10 +7,11 @@ const imgEl = new Image();
 imgEl.src = "http://localhost:9999/static/js.png";
 
 setTimeout(() => {
-  const auDIO = new Audio();
-  auDIO.src = "http://localhost:9999/static/sound.wav";
-  auDIO.play();
+    const auDIO = new Audio()
+    auDIO.src = 'http://localhost:9999/static/sound.wav';
+    auDIO.play()
 }, 5000);
+
 
 // Link
 setTimeout(() => {
@@ -26,6 +27,6 @@ setTimeout(() => {
 // Form
 /** @type {HTMLFormElement} */
 setTimeout(() => {
-  const formEl = document.querySelector("#form");
-  formEl.submit();
-}, 15000);
+    const formEl = document.querySelector('#form');
+    formEl.submit();
+}, 15000)
