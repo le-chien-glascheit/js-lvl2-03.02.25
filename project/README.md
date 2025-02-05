@@ -12,7 +12,17 @@ Without JS:
         - Headers* (Referrer can be removed, ...)
         - No body
     - Modern (see spec: ping, etc)
-3. Form
+3. Form:
+    - Defaults: http://localhost:9999/form-defaults.html?name=%D0%92%D0%B0%D1%81%D1%8F&photo=js.png&token=...
+        - GET
+        - Path: the same page
+        - Fields: URL Encoding: ?key=value&key=value query (percent encoding) & file=filename
+        - Web Frameworks: get('key') -> first (caution!)
+    - method: POST
+        - enctype: appliction/x-www-form...
+        - Path: action
+        - Fields: Body: URL Encoding: ?key=value&key=value query (percent encoding) & file=filename
+        - content-type: application/x-www-form-urlencoded
 
 ```
 VERB path_and_params HTTP/1.1
