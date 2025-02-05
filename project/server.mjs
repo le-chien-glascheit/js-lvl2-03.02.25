@@ -660,6 +660,14 @@ router.register('GET', '/api/test/message', (req, res) => {
 }, jsonMiddleware);
 router.register('GET', '/api/test/long', longPollingHandler);
 router.register('GET', '/api/test/sse', sseHandler);
+router.register('GET', '/api/dynamic.html', async (req, res) => {
+    const template = await fs.readFile('template.html', 'utf8');
+    const content = template.replace('{copyright}', 'Big Company');
+    res.writeHead(200, {
+        'content-type': 'text/html'
+    });
+    res.end(content);
+});
 
 const httpServer = new HttpServer();
 httpServer.on('connection', (conn) => {
