@@ -7,13 +7,11 @@ const imgEl = new Image();
 imgEl.src = 'http://localhost:9999/static/js.png';
 
 setTimeout(() => {
-    // 1. new Audio()
-    // 2. src
-    // 3. play
-    const audioEl = new Audio();
-    audioEl.src = 'http://localhost:9999/static/sound.wav';
-    // audioEl.play();
+    const auDIO = new Audio()
+    auDIO.src = 'http://localhost:9999/static/sound.wav';
+    auDIO.play()
 }, 5000);
+
 
 // Link
 setTimeout(() => {
