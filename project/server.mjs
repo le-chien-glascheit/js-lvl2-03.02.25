@@ -260,7 +260,7 @@ const multipartMiddleware = (next) => (req, res) => {
 
 const slowMiddleware = (next) => (req, res) => {
     console.log('slow');
-    setTimeout(() => next(req, res), 5000);
+    setTimeout(() => next(req, res), 10000);
 };
 
 const sseReloadHandler = (req, res) => {
@@ -586,7 +586,7 @@ router.register('GET', '/api/counter/{value}', (req, res) => {
 router.register('POST', '/api/test/query', (req, res) => {
     // req.parsedUrl.searchParams.get('key') or getAll('key')
     Router.json(req, res, { data: { value: 'ok' } });
-});
+}, slowMiddleware);
 router.register('POST', '/api/test/form', (req, res) => {
     // req.body.get('key') or getAll('key')
     Router.json(req, res, { data: { value: 'ok' } });
