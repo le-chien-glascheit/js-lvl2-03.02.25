@@ -86,3 +86,25 @@ Anchor:
 1. https://datatracker.ietf.org/doc/html/rfc2616#section-3.8
 2. #token
 3. ...
+
+## POJO
+
+POJO (Plain Old JavaScript Objects):
+
+JSON (portable format) - https://www.json.org/json-en.html
+
+[I-JSON](https://datatracker.ietf.org/doc/html/rfc7493) - {} || []
+
+```js
+{
+    key: value,
+    nested: {
+
+    },
+    array: [],
+    // Number, BigInt
+    // Symbol
+    // undefined
+    // function, ...
+}
+```

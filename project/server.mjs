@@ -580,6 +580,80 @@ class Router {
 const router = new Router(corsMiddleware);
 router.register('GET', /^\/(?!api\/).*$/, staticHandler);
 router.register('GET', '/api/reload', sseReloadHandler);
+
+
+// readystate
+router.register('POST', '/api/test/readystate', (req, res) => {
+    setTimeout(() => {
+        res.writeHead(400, {
+            'content-type': 'text/plain'
+        });
+        res.flushHeaders();
+    }, 5000);
+
+    setTimeout(() => {
+        res.write('first line');
+    }, 10_000);
+
+    setTimeout(() => {
+        res.write('second line');
+    }, 15_000);
+
+    setTimeout(() => {
+        res.end('last line');
+    }, 20_000);
+}, slowMiddleware);
+
+router.register('POST', '/api/test/html', (req, res) => {
+    res.writeHead(200, {
+        'content-type': 'text/html'
+    });
+    res.end(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Copyright &copy; Big Company
+</body>
+</html>`);
+});
+
+router.register('POST', '/api/xhr/test/xml', (req, res) => {
+    res.writeHead(200, {
+        'content-type': 'text/xml'
+    });
+    res.end(`<?xml version="1.0" encoding="utf-8"?>
+<res>
+    <value>ok</value>        
+</res>`);
+});
+
+router.register('POST', '/api/xhr/test/json', (req, res) => {
+    res.writeHead(200, {
+        'content-type': 'application/json'
+    });
+    res.end(`{
+        "res": {
+            "value": "ok"
+        }
+    }`);
+});
+
+const cards = [
+    {id: 1, num: '22 **** 0001', balance: 30_000},
+    {id: 2, num: '22 **** 0002', balance: 40_000},
+    {id: 3, num: '22 **** 0003', balance: 50_000},
+];
+router.register('GET', '/api/xhr/test/cards', (req, res) => {
+    res.writeHead(200, {
+        'content-type': 'application/json'
+    });
+    res.end(JSON.stringify(cards));
+});
+
 router.register('GET', '/api/counter/{value}', (req, res) => {
     Router.json(req, res, { data: { value: req.params.groups.value } });
 }, jsonMiddleware, slowMiddleware);
