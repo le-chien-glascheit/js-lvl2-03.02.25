@@ -648,10 +648,13 @@ const cards = [
     {id: 3, num: '22 **** 0003', balance: 50_000},
 ];
 router.register('GET', '/api/xhr/test/cards', (req, res) => {
-    res.writeHead(200, {
-        'content-type': 'application/json'
-    });
-    res.end(JSON.stringify(cards));
+    setTimeout(() => {
+        res.writeHead(200, {
+            'content-type': 'application/json'
+        });
+        // res.end(JSON.stringify(cards));
+        res.end(null);
+    }, 100)
 });
 
 router.register('GET', '/api/counter/{value}', (req, res) => {

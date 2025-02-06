@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style type="text/css">
+        .card span {
+            padding-right: 1em;
+        }
+
+        .error {
+            color: #842029;
+            background-color: #f8d7da;
+            border-color: #f5c2c7;
+            position: relative;
+            padding: 1rem 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="loader" class="hidden">Loading...</div>
+    <div id="error" class="hidden error"></div>
+    <div id="app" class="hidden"></div>
     <script src="cards.mjs" type="module"></script>
     <script>
         // live-reload
