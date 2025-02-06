@@ -1,10 +1,10 @@
-const videoEl = document.querySelector('#video');
+const videoEl = document.querySelector("#video");
 
 // events
 videoEl.addEventListener("play", (event) => {
-    console.log(event);
+  console.log(event);
 });
 
 setTimeout(() => {
-    videoEl.play(); // method()
+  videoEl.play(); // method()
 }, 3000);

@@ -1,4 +1,4 @@
-import {sum} from './lib';
+import { sum } from "./lib";
 
 // 1. syntax
 // function save(filename = throw new TypeError("Argument required")) {
@@ -9,4 +9,4 @@ console.log(re);
 Promise.resolve().finally();
 
 console.log(sum(1, 3));
-console.log('hello');
+console.log("hello");

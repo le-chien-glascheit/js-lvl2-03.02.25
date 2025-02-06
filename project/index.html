@@ -1,61 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script src="app.js"></script>
     <script>
-        // live-reload
-        {
-            const sse = new EventSource('/api/reload');
-            sse.addEventListener('message', (ev) => {
-                if (ev.data === 'reload') {
-                    window.location.reload();
-                }
-            });
-        }
-        // long-polling
-        // {
-        //     const poll = async() => {
-        //         try {
-        //             const resp = await fetch('/api/test/long');
-        //             const body = await resp.json();
-        //             console.log(body);
-        //             setTimeout(poll, 0);
-        //         } catch (e) {
-        //             console.error(e);
-        //             setTimeout(poll, 10_000);
-        //         }
-        //     };
-        //     setTimeout(poll, 0);
-        // }
-        // sse
-        // {
-        //     const sse = new EventSource('/api/test/sse');
-        //     sse.addEventListener('message', (ev) => {
-        //         console.log(ev);
-        //     });
-        // }
-        // ws
-        // {
-        //     const ws = new WebSocket('ws://localhost:9999');
-        //     ws.onopen = (ev) => {
-        //         console.log('open', ev);
-        //         ws.send('welcome');
-        //     };
-        //     ws.onerror = (ev) => {
-        //         console.log('error', ev);
-        //     };
-        //     ws.onclose = (ev) => {
-        //         console.log('close', ev);
-        //     };
-        //     ws.onmessage = (ev) => {
-        //         console.log(ev.data);
-        //     };
-        // }
+      // live-reload
+      {
+        const sse = new EventSource("/api/reload");
+        sse.addEventListener("message", (ev) => {
+          if (ev.data === "reload") {
+            window.location.reload();
+          }
+        });
+      }
+      // long-polling
+      // {
+      //     const poll = async() => {
+      //         try {
+      //             const resp = await fetch('/api/test/long');
+      //             const body = await resp.json();
+      //             console.log(body);
+      //             setTimeout(poll, 0);
+      //         } catch (e) {
+      //             console.error(e);
+      //             setTimeout(poll, 10_000);
+      //         }
+      //     };
+      //     setTimeout(poll, 0);
+      // }
+      // sse
+      // {
+      //     const sse = new EventSource('/api/test/sse');
+      //     sse.addEventListener('message', (ev) => {
+      //         console.log(ev);
+      //     });
+      // }
+      // ws
+      // {
+      //     const ws = new WebSocket('ws://localhost:9999');
+      //     ws.onopen = (ev) => {
+      //         console.log('open', ev);
+      //         ws.send('welcome');
+      //     };
+      //     ws.onerror = (ev) => {
+      //         console.log('error', ev);
+      //     };
+      //     ws.onclose = (ev) => {
+      //         console.log('close', ev);
+      //     };
+      //     ws.onmessage = (ev) => {
+      //         console.log(ev.data);
+      //     };
+      // }
     </script>
-</body>
+  </body>
 </html>

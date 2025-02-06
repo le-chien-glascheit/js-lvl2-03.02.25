@@ -1,23 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <video id="video" src="spring.ogv" controls muted></video>
     <script src="app.js"></script>
     <script>
-        // live-reload
-        {
-            const sse = new EventSource('/api/reload');
-            sse.addEventListener('message', (ev) => {
-                if (ev.data === 'reload') {
-                    window.location.reload();
-                }
-            });
-        }
+      // live-reload
+      {
+        const sse = new EventSource("/api/reload");
+        sse.addEventListener("message", (ev) => {
+          if (ev.data === "reload") {
+            window.location.reload();
+          }
+        });
+      }
     </script>
-</body>
+  </body>
 </html>
