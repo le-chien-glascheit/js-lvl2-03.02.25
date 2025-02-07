@@ -495,7 +495,7 @@ class Router {
 
         this.variablePattern = /\{([^/]+)\}/g;
         this.variablePatternReplacement = '(?<$1>[^/]+)';
-        this.allowedMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'];
+        this.allowedMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'CUSTOM'];
     }
 
     register(method, path, handler, ...middlewares) {
@@ -652,10 +652,38 @@ router.register('GET', '/api/xhr/test/cards', (req, res) => {
         res.writeHead(200, {
             'content-type': 'application/json'
         });
-        // res.end(JSON.stringify(cards));
-        res.end(null);
+        res.end(JSON.stringify(cards));
     }, 100)
+}, slowMiddleware);
+router.register('GET', '/api/xhr/test/cards/v2', (req, res) => {
+    setTimeout(() => {
+        res.writeHead(200, {
+            'content-type': 'application/json'
+        });
+        res.end(JSON.stringify({
+            data: cards
+        }));
+    }, 100)
+}, slowMiddleware);
+router.register('POST', '/api/xhr/test/path-and-query/{value}', (req, res) => {
+    Router.json(req, res, { data: { value: 'ok' } });
 });
+
+router.register('GET', '/api/xhr/test/form-query', (req, res) => {
+    Router.json(req, res, { data: { value: 'ok' } });
+});
+router.register('POST', '/api/xhr/test/form-urlencoded', (req, res) => {
+    Router.json(req, res, { data: { value: 'ok' } });
+});
+router.register('POST', '/api/xhr/test/form-data', (req, res) => {
+    Router.json(req, res, { data: { value: 'ok' } });
+});
+router.register('POST', '/api/xhr/test/form-blob', (req, res) => {
+    Router.json(req, res, { data: { value: 'ok' } });
+});
+router.register('POST', '/api/xhr/test/form-data-slow', (req, res) => {
+    Router.json(req, res, { data: { value: 'ok' } });
+}, slowMiddleware);
 
 router.register('GET', '/api/counter/{value}', (req, res) => {
     Router.json(req, res, { data: { value: req.params.groups.value } });

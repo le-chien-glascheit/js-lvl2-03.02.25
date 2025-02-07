@@ -108,3 +108,5 @@ JSON (portable format) - https://www.json.org/json-en.html
     // function, ...
 }
 ```
+
+https://ya.ru/%D0%B0%D0%B4%D0%BC%D0%B8%D0%BD%D0%BA%D0%B0
