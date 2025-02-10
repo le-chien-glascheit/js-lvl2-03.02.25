@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Document</title>
+</head>
+<body>
+    <script src="prototypes.mjs" type="module"></script>
+    <script>
+        // live-reload
+        {
+            const sse = new EventSource('/api/reload');
+            sse.addEventListener('message', (ev) => {
+                if (ev.data === 'reload') {
+                    window.location.reload();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

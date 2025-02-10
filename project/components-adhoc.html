@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Document</title>
+</head>
+<body>
+    <div data-widget="adhoc">
+        <form data-widget-part="form">
+            <fieldset data-widget-part="fieldset">
+                <div>
+                    <input type="text" name="name" id="name" value="Vasya">
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="agree" id="agree"> Agree?
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="radio" id="first" value="first"> First
+                    </label>
+                    <label>
+                        <input type="radio" name="radio" id="second" value="second"> Second
+                    </label>
+                </div>
+                <div>
+                    <input type="file" name="photo" id="photo" multiple>
+                </div>
+                <button type="submit">Ok</button>
+                <button type="reset">Reset</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <script src="components-adhoc.mjs" type="module"></script>
+    <script>
+        // live-reload
+        {
+            const sse = new EventSource('/api/reload');
+            sse.addEventListener('message', (ev) => {
+                if (ev.data === 'reload') {
+                    window.location.reload();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
