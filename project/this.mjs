@@ -64,3 +64,5 @@ arrow();
 arrow.call(thief);
 // arrow functions: no this
 // no new, call - not working
+
+// this in static method -> fn constructor/class
