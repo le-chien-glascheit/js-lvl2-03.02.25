@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Document</title>
+    <style>
+        input:invalid {
+            border: 1px solid red;
+        }
+        form:invalid {
+            border: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Money Transfer</h1>
+    <form id="form" novalidate>
+        <div>
+            <input name="num" type="text" value="4111111111111111" required pattern="\d{16}">
+            <span></span>
+        </div>
+        <div>
+            <label for="amount">Сумма в рублях (мин - 1 рубль, макс - 9 999 999)</label>
+            <input id="amount" name="amount" type="text" required pattern="\d{1,7}">
+            <span></span>
+        </div>
+        <div><button type="submit">Send</button></div>
+    </form>
+    <script src="form-validation-api.mjs" type="module"></script>
+    <script>
+        // live-reload
+        {
+            const sse = new EventSource('/api/reload');
+            sse.addEventListener('message', (ev) => {
+                if (ev.data === 'reload') {
+                    window.location.reload();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
