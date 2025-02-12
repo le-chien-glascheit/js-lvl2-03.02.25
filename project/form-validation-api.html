@@ -18,14 +18,17 @@
     <h1>Money Transfer</h1>
     <form id="form" novalidate>
         <div>
-            <input name="num" type="text" value="4111111111111111" required pattern="\d{16}">
+            <app-counter-form name="counter" count="15"></app-counter-form>
+        </div>
+        <!-- <div>
+            <input name="num" type="text" value="" required pattern="\d{16}" data-validation-luhn="0">
             <span></span>
         </div>
         <div>
             <label for="amount">Сумма в рублях (мин - 1 рубль, макс - 9 999 999)</label>
             <input id="amount" name="amount" type="text" required pattern="\d{1,7}">
             <span></span>
-        </div>
+        </div> -->
         <div><button type="submit">Send</button></div>
     </form>
     <script src="form-validation-api.mjs" type="module"></script>
