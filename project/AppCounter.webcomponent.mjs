@@ -47,7 +47,8 @@ class AppCounter extends HTMLElement {
             if (this.#count === parsed) {
                 return;
             }
-
+            
+            this.#increaseEl.setFormValue((`this.#count`));
             // TODO: validate
             if (Number.isNaN(parsed)) {
                 // this.setAttribute('count', oldValue);
