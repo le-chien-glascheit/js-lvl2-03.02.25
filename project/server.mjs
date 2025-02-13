@@ -713,6 +713,21 @@ router.register('POST', '/api/test/tls', (req, res) => {
     // req.socket.getPeerCertificate() = object
     Router.json(req, res, { data: { value: 'ok' } });
 });
+
+router.register('GET', '/api/promise/data', (req, res) => {
+    // req.body.parts
+    Router.json(req, res, { data: { value: 'ok' } });
+});
+
+router.register('GET', '/api/fetch/test/cards', (req, res) => {
+    setTimeout(() => {
+        res.writeHead(200, {
+            'content-type': 'application/json'
+        });
+        res.end(JSON.stringify(cards));
+    }, 100)
+}, slowMiddleware);
+
 router.register('GET', '/api/test/message', (req, res) => {
     longPollingClients.forEach((client) => client('message'));
 
