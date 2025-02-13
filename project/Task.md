@@ -1,22 +1,22 @@
 ## Level 1
 
-1. WebComponent AppAlert
-2. attribute `content`
-3. html:
+- [x] WebComponent AppCards
+- [x] html:
 
-`<div>content</div>`
+```html
+<ul>
+    <li>num: ..., balance: ...</li>
+</ul>
+```
 
-4. html:
+- [x] html:
 
-`<app-alert content="..."></app-alert>
+`<app-cards></app-cards>`
+
+4. async/await + fetch: api/fetch/test/cards
 
 ## Level 2
 
-Close - remove itself from DOM
+Load cards only once - connectedCallback - multiple times
 
-```html
-<div>
-    <div>content</div>
-    <button>x</button>
-</div>
-```
+Timeline: 13:30 msk
