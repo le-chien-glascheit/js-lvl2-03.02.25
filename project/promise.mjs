@@ -63,7 +63,7 @@ orig.finally(() => {
     console.log('finally');
     // throw new Error('something bad happened in finally'); // return new Promise => reject(finally error)
     // return 'finally';
-    return subsequent(); // return new Promise => resolve(orig data)/reject(subsequent)
+    // return subsequent(); // return new Promise => resolve(orig data)/reject(subsequent)
     // orig: Resolved => return new Promise => resolve(orig data) not by return!
     // orig: Rejected => return new Promise => reject(orig error) not by return!
 })
